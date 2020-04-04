@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      {{ convertToDate({dt: weatherDay.dt*1000 - timezone*1000}) | date: dateFormat }} - {{
+      isDay({dt: weatherDay.dt*1000 - timezone*1000}) ? 'Day':'Night' }}
+    </h3>
+  </div>
+  <div class="panel-body">
+    <img ng-src="http://openweathermap.org/img/w/{{weatherDay.weather[0].icon}}.png" /> {{
+    convertToStandard({dayTimeTemp: weatherDay.main.temp}) }} &deg;C -
+    <span class="text-capitalize"> {{weatherDay.weather[0].description}}</span>
+  </div>
+</div>
